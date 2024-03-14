@@ -17,12 +17,12 @@ export abstract class Jugador extends Persona{
     private historialEquipos: Set<Equipo>;
     private nroCamiseta: Number;
 
-    constructor(nombre: string, apellido: string, nacimiento: Date, dni: number, provincia: Provincia, posicion: Posicion, clubActual: Equipo, historialEquipos: Set<Equipo>, nroCamiseta: Number){
-        super(nombre, apellido, nacimiento, dni);
+    constructor(nombre: string, apellido: string, dni: number, provincia: Provincia, posicion: Posicion, clubActual: Equipo, nroCamiseta: Number){
+        super(nombre, apellido, dni);
         this.provincia=provincia;
         this.posicion=posicion;
         this.clubActual=clubActual;
-        this.historialEquipos=historialEquipos;
+        this.historialEquipos= new Set<Equipo>();
         this.nroCamiseta=nroCamiseta;
     }    
     

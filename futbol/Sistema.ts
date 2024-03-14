@@ -5,6 +5,9 @@ import { Partido } from "./Partido";
 import { Persona } from "./Persona";
 import { JugadorCampo } from "./JugadorCampo";
 import { Arquero } from "./Arquero";
+enum Tarjeta{
+    AMARILLA, ROJA, NINGUNA
+}
 export class Sistema{
     private equipos: Set<Equipo>;
     private partidos: Set<Partido>;
@@ -43,14 +46,31 @@ export class Sistema{
             }
         }
     }
+    jugadoresSuspendidos(): Set<Jugador>{
+        let jugadoresSuspendidos = new Set<Jugador>();
+        for(let partido of this.Partidos){
+            if(partido.Fecha.getFullYear()== new Date().getFullYear()){
+                for(let jugador of partido.JugadoresClub1.keys()){
+                    if(partido.JugadoresClub1.get(jugador)==Tarjeta.ROJA){
+                        jugadoresSuspendidos.add(jugador);
+                    }
+                }
+                for(let jugador of partido.JugadoresClub2.keys()){
+                    if(partido.JugadoresClub2.get(jugador)==Tarjeta.ROJA){
+                        jugadoresSuspendidos.add(jugador);
+                    }
+                }
+            }
+        }
+        return jugadoresSuspendidos;
+    }
     agregarPartido(partido: Partido): void{
         this.Partidos.add(partido);
-        for(let jugador of partido.JugadoresClub1){
+        partido.JugadoresClub1.forEach((tarjeta, jugador) => {
             this.actualizarJugador(jugador, partido);
-        }
-        for(let jugador of partido.JugadoresClub2){
+        });
+        partido.JugadoresClub2.forEach((tarjeta, jugador) => {
             this.actualizarJugador(jugador, partido);
-        }
+        });
     }
-
 }

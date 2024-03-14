@@ -5,11 +5,11 @@ export class JugadorCampo extends Jugador{
     private goles: number;
     private intentosAlArco: number;
     private asistencias: number;
-    constructor(nombre: string, apellido: string, nacimiento: Date, dni: number, provincia: Provincia, posicion: Posicion, clubActual: Equipo, historialEquipos: Set<Equipo>, nroCamiseta: Number, goles: number, intentosAlArco: number, asistencias: number){
-        super(nombre, apellido, nacimiento, dni, provincia, posicion, clubActual, historialEquipos, nroCamiseta);
-        this.goles=goles;
-        this.intentosAlArco=intentosAlArco;
-        this.asistencias=asistencias;
+    constructor(nombre: string, apellido: string, dni: number, provincia: Provincia, posicion: Posicion, clubActual: Equipo,  nroCamiseta: Number){
+        super(nombre, apellido, dni, provincia, posicion, clubActual, nroCamiseta);
+        this.goles=0;
+        this.intentosAlArco=0;
+        this.asistencias=0;
     }
     get Goles(): number{
         return this.goles;

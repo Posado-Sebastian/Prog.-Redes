@@ -5,10 +5,10 @@ import { Provincia, Posicion } from "./Jugador";
 export class Arquero extends Jugador{
     private atajadas: number;
     private golesRecibidos: number;
-    constructor(nombre: string, apellido: string, nacimiento: Date, dni: number, provincia: Provincia, clubActual: Equipo, historialEquipos: Set<Equipo>, nroCamiseta: Number, atajadas: number, golesRecibidos: number){
-        super(nombre, apellido, nacimiento, dni, provincia, Posicion.ARQUERO, clubActual, historialEquipos, nroCamiseta);
-        this.atajadas=atajadas;
-        this.golesRecibidos=golesRecibidos;
+    constructor(nombre: string, apellido: string, dni: number, provincia: Provincia, clubActual: Equipo, nroCamiseta: Number){
+        super(nombre, apellido, dni, provincia, Posicion.ARQUERO, clubActual, nroCamiseta);
+        this.atajadas=0;
+        this.golesRecibidos=0;
     }
     get Atajadas(): number{
         return this.atajadas;

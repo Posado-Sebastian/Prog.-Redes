@@ -3,10 +3,10 @@ export abstract class Persona{
     private apellido: string;
     private nacimiento: Date;
     private dni : number;
-    constructor(nombre: string, apellido: string, nacimiento: Date, dni: number){
+    constructor(nombre: string, apellido: string, dni: number){
         this.nombre = nombre;
         this.apellido = apellido;
-        this.nacimiento = nacimiento;
+        this.nacimiento = new Date();
         this.dni = dni;
     }
     get Nombre(): string{
