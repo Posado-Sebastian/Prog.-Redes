@@ -33,7 +33,7 @@ export class Equipo implements Contrato{
     verificarClub(jugador:Jugador): void{
         if(jugador.ClubActual == this && jugador.calcularEdad()>35){
             throw new Error("El jugador no tiene la edad permitida para renovar su contrato");
-        }else if(jugador.ClubActual != this && jugador.calcularEdad()>35){
+        }else if(jugador.ClubActual != this && jugador.calcularEdad()<35){
             throw new Error("El jugador no esta en el club para renovar su contrato");
         }else{
             throw new Error("El jugador no tiene la edad permitida ni esta en el club para renovar su contrato");
