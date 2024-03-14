@@ -31,7 +31,7 @@ export class Arquero extends Jugador{
         }
     }
     actualizarDatos(n1: number, n2: number, n3: number) {
-        this.atajadas=n1;
-        this.golesRecibidos=n2;
+        this.atajadas+=n1;
+        this.golesRecibidos+=n2;
     }
 }

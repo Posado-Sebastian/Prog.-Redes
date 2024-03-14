@@ -14,7 +14,7 @@ export abstract class Jugador extends Persona{
     private provincia: Provincia;
     private posicion: Posicion;
     private clubActual: Equipo;
-    private historialEquipos: Set<Equipo>;
+    private historialEquipos: Map<[Date, Date], Equipo>;
     private nroCamiseta: Number;
 
     constructor(nombre: string, apellido: string, dni: number, provincia: Provincia, posicion: Posicion, clubActual: Equipo, nroCamiseta: Number){
@@ -22,7 +22,7 @@ export abstract class Jugador extends Persona{
         this.provincia=provincia;
         this.posicion=posicion;
         this.clubActual=clubActual;
-        this.historialEquipos= new Set<Equipo>();
+        this.historialEquipos= new Map<[Date,Date],Equipo>();
         this.nroCamiseta=nroCamiseta;
     }    
     
@@ -51,11 +51,11 @@ export abstract class Jugador extends Persona{
         this.clubActual = value;
     }
 
-    get HistorialEquipos(): Set<Equipo> {
+    get HistorialEquipos(): Map<[Date, Date], Equipo> {
         return this.historialEquipos;
     }
 
-    set HistorialEquipos(value: Set<Equipo>) {
+    set HistorialEquipos(value: Map<[Date, Date], Equipo>) {
         this.historialEquipos = value;
     }
 

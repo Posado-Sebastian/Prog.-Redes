@@ -1,5 +1,5 @@
 import {Jugador} from './Jugador';
-interface Contrato{
+export interface Contrato{
     contratar(Jugador: Jugador): void;
     renovarContrato(Jugador: Jugador): void;
 }

@@ -38,8 +38,8 @@ export class JugadorCampo extends Jugador{
         }
     }
     actualizarDatos(n1: number, n2: number, n3: number) {
-        this.goles=n1;
-        this.intentosAlArco=n2;
-        this.asistencias=n3;
+        this.goles=this.goles+n1;
+        this.intentosAlArco+=n2;
+        this.asistencias+=n3;
     }
 }
